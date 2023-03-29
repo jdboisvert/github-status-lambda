@@ -2,18 +2,17 @@ package main
 
 import (
 	"context"
-	"log"
-
-	"github.com/aws/aws-lambda-go/lambda"
+	// "github.com/aws/aws-lambda-go/lambda"
 )
 
 type Event struct{}
 
 func HandleRequest(ctx context.Context, event Event) error {
-	log.Println("Hello World!")
+	UpdateGitHubProfileStatus(ctx)
 	return nil
 }
 
 func main() {
-	lambda.Start(HandleRequest)
+	HandleRequest(context.Background(), Event{})
+	// lambda.Start(HandleRequest)
 }
