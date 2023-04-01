@@ -53,14 +53,12 @@ func updateGitHubStatus(ctx context.Context, accessToken, statusMessage, emoji s
 		return fmt.Errorf("GitHub API error: %s", resp.Status)
 	}
 
-	log.Println("GitHub status updated successfully.")
-
 	// Show the body of the response for testing purposes only.
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		return err
-	}
-	log.Println(string(body))
+	// body, err := ioutil.ReadAll(resp.Body)
+	// if err != nil {
+	// 	return err
+	// }
+	// log.Println(string(body))
 
 	return nil
 }
@@ -68,7 +66,7 @@ func updateGitHubStatus(ctx context.Context, accessToken, statusMessage, emoji s
 func handler(ctx context.Context) error {
 	accessToken := os.Getenv("GITHUB_TOKEN")
 	if accessToken == "" {
-		return fmt.Errorf("GITHUB_ACCESS_TOKEN is not set")
+		return fmt.Errorf("GITHUB_TOKEN is not set")
 	}
 
 	statusEntries, err := ReadStatusEntriesFromFile()
@@ -83,6 +81,8 @@ func handler(ctx context.Context) error {
 	if err := updateGitHubStatus(ctx, accessToken, randomStatusEntry.Message, randomStatusEntry.Emoji); err != nil {
 		return fmt.Errorf("failed to update GitHub status: %v", err)
 	}
+
+	log.Println("GitHub status updated successfully with message: ", randomStatusEntry.Message)
 
 	return nil
 }
