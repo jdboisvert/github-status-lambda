@@ -7,8 +7,10 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"math/rand"
 	"net/http"
 	"os"
+	"time"
 )
 
 func updateGitHubStatus(ctx context.Context, accessToken, statusMessage, emoji string) error {
@@ -69,9 +71,16 @@ func handler(ctx context.Context) error {
 		return fmt.Errorf("GITHUB_ACCESS_TOKEN is not set")
 	}
 
-	statusMessage := "And the bass keeps on running." // TODO get this from a config file at random
-	emoji := ":guitar:"                               // TODO get this from a config file at random
-	if err := updateGitHubStatus(ctx, accessToken, statusMessage, emoji); err != nil {
+	statusEntries, err := ReadStatusEntriesFromFile()
+	if err != nil {
+		return fmt.Errorf("failed to read status entries: %v", err)
+	}
+
+	// Pick a random status entry.
+	rand.Seed(time.Now().UnixNano())
+	randomStatusEntry := statusEntries[rand.Intn(len(statusEntries))]
+
+	if err := updateGitHubStatus(ctx, accessToken, randomStatusEntry.Message, randomStatusEntry.Emoji); err != nil {
 		return fmt.Errorf("failed to update GitHub status: %v", err)
 	}
 
