@@ -3,7 +3,8 @@ package main
 import (
 	"context"
 	"fmt"
-	// "github.com/aws/aws-lambda-go/lambda"
+
+	"github.com/aws/aws-lambda-go/lambda"
 )
 
 type Event struct{}
@@ -19,6 +20,5 @@ func HandleRequest(ctx context.Context, event Event) error {
 }
 
 func main() {
-	HandleRequest(context.Background(), Event{})
-	// lambda.Start(HandleRequest)
+	lambda.Start(HandleRequest)
 }

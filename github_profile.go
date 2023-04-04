@@ -53,13 +53,6 @@ func updateGitHubStatus(ctx context.Context, accessToken, statusMessage, emoji s
 		return fmt.Errorf("GitHub API error: %s", resp.Status)
 	}
 
-	// Show the body of the response for testing purposes only.
-	// body, err := ioutil.ReadAll(resp.Body)
-	// if err != nil {
-	// 	return err
-	// }
-	// log.Println(string(body))
-
 	return nil
 }
 
