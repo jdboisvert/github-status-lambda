@@ -1,14 +1,38 @@
 [
     {
-        "message": "Good morning! I'm online and ready to work.",
-        "emoji": "😃"
+        "message": "\"Sometimes it is the people no one can imagine anything of who do the things no one can imagine.\" - Alan Turing",
+        "emoji": "🧠"
     },
     {
-        "message": "Rise and shine! Let's get some work done.",
-        "emoji": "🌞"
+        "message": "I'm made of wax Larry, what are you made of?",
+        "emoji": "🐻"
     },
     {
-        "message": "Up and running! Let's make today productive.",
-        "emoji": "💪"
+        "message": "Deleted code is debugged code.",
+        "emoji": "🐛"
+    },
+    {
+        "message": "'Cause you can't, you won't, and you don't stop",
+        "emoji": "🚏"
+    },
+    {
+        "message": "This is how it goes",
+        "emoji": "🎯"
+    },
+    {
+        "message": "The Legend of Zelda the Wind Waker is an underrated game.",
+        "emoji": "🌊"
+    },
+    {
+        "message": "Mountain sounds",
+        "emoji": "🏔"
+    },
+    {
+        "message": "You can do it says caffeine!",
+        "emoji": "☕" 
+    },
+    {
+        "message": "Pizza is not underrated or overrated, it is just rated E for everyone.",
+        "emoji": "🍕"
     }
 ]
